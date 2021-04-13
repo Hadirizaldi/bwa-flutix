@@ -15,10 +15,17 @@ class AuthServices {
 
       await UserServices.updateUser(user);
 
-      return user;
+      return SignInSignUpResult(user: user);
     }catch(e){
-      return null;
+      return SignInSignUpResult(message: e.toString());
     }
       
   }
+}
+
+class SignInSignUpResult {
+  final UserDetail user;
+  final String message;
+
+  SignInSignUpResult({this.user, this.message});
 }
