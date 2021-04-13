@@ -21,6 +21,10 @@ class AuthServices {
     }
       
   }
+
+  static Future<SignInSignUpResult> signIn(String email, String Password) async {
+    _auth.signInWithEmailAndPassword(email: email, password: password);
+  }
 }
 
 class SignInSignUpResult {
