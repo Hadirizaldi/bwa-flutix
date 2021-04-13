@@ -12,6 +12,13 @@ class AuthServices {
           name: name,
           selectedGenres: selectedGenres, 
           selectedLanguage: selectedLaguage);
-    }catch(e){}
+
+      await UserServices.updateUser(user);
+
+      return user;
+    }catch(e){
+      return null;
+    }
+      
   }
 }
