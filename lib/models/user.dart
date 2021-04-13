@@ -16,6 +16,11 @@ class UserDetail extends Equatable {
       this.selectedGenres, 
       this.selectedLanguage});
 
+  @override
+  String toString() {
+    return "[$id] - $name, $email";
+  } 
+
 
   @override
   List<Object> get props => [
