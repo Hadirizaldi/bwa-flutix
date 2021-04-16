@@ -22,8 +22,18 @@ class AuthServices {
       
   }
 
-  static Future<SignInSignUpResult> signIn(String email, String Password) async {
-    _auth.signInWithEmailAndPassword(email: email, password: password);
+   Future <SignInSignUpResult> signIn(String email, String password) async {
+    try {
+      UserCredential result = await  _auth.     signInWithEmailAndPassword(email: email, password: password);
+      
+        UserDetail user = await result.user.fromFireStore();
+
+        return SignInSignUpResult(user: user);
+      }
+    catch(e){
+      return SignInSignUpResult(message: e.toString());
+    }
+    
   }
 }
 

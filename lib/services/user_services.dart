@@ -4,10 +4,10 @@ class UserServices {
   static CollectionReference _userCollection = FirebaseFirestore.instance.collection("users");
 
   static updateUser(UserDetail user) async {
-    String genres = "";
+    String genres = " ";
 
     for (var genre in user.selectedGenres){
-      genres += genre + ((genre != user.selectedGenres.last) ? ',' : '');
+      genres +=genre + ((genres != user.selectedGenres.last) ? ',' : '');
     }
 
     _userCollection.doc(user.id).set({
@@ -18,6 +18,18 @@ class UserServices {
       'profilePicture' : user.profilePicture ?? ""
 
     });
+  }
 
+  static Future<UserDetail> getUser (String id)async {
+    DocumentSnapshot snapshot = await _userCollection.doc(id).get();
+  
+    return UserDetail(
+      id,
+      snapshot['email'],
+      balance: snapshot['balance'],
+      profilePicture: snapshot['profilePicture'],
+      selectedGenres: snapshot['selectedlanguage'],
+      name: snapshot['nama']
+       );
   }
 }  

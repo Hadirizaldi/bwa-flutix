@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
                 ["action", "horror", "Drama"], 
                 "Indonesia");
 
-                if (result.user == null) {
+                if (result.user ==  null) {
                   print(result.message);
                 }
                 else {
