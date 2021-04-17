@@ -9,7 +9,7 @@ abstract class UserState extends Equatable {
 class UserInitial extends UserState {
   @override
   List<Object> get props => [];
-}
+} 
 
 
 class UserLoaded extends UserState {
