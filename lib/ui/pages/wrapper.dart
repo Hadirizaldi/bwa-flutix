@@ -6,12 +6,20 @@ class Wrapper extends StatelessWidget {
     User firebaseUser = Provider.of<User>(context);
     
     if(firebaseUser == null) {
-      return SignInPage();
+      if(!(prevPageEvent is GoToSplashPage)) {
+        prevPageEvent = GoToSplashPage();
+        context.bloc<PageBloc>().add(prevPageEvent);
+      }
     }
     else {
-      return MainPage();
+      if(!(prevPageEvent is GoToMainPage)){
+        prevPageEvent = GoToMainPage();
+        context.bloc<PageBloc>().add(prevPageEvent);
+      }
     }
-      
-    
+      return BlocBuilder<PageBloc, PageState>(
+        builder: (_, pageState) => (pageState is OnSplashPage)
+          ? SplashPage() 
+          : (pageState is OnInitialPage) ? SignInPage() : MainPage());
   }
 } 
