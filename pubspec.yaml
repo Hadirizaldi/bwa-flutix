@@ -23,10 +23,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flushbar: ^1.10.0
   cloud_firestore: ^1.0.4
+  email_validator: ^1.0.4
   equatable: ^2.0.0
   firebase_auth: ^1.1.0
   flutter_bloc: ^3.2.0
+  flutter_spinkit: ^4.1.2+1
   google_fonts: ^2.0.0
   provider: ^4.0.4
 
