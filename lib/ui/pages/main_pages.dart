@@ -10,13 +10,32 @@ class _MainPageState extends State<MainPage> {
   PageController pageController;
 
   @override
+    void initState() {
+      super.initState();
+
+      bottomNavbarIndex = 0;
+      pageController = PageController(initialPage: bottomNavbarIndex);
+    }
+ 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(color: accentColor1,),
           SafeArea(child: Container(color : Color(0xFF6F7F9),)),
-          ListView(),
+          PageView(
+            controller: pageController,
+            onPageChanged: (index) {
+              setState(() {
+                bottomNavbarIndex = index;
+            });
+            },
+            children: <Widget>[
+              Center(child: Text("New Movie"),),
+              Center(child: Text("My Tickets"),)
+            ],
+          ),
           createCustomBottomNavbar(),
           Align(
             alignment: Alignment.bottomCenter,
@@ -53,9 +72,41 @@ class _MainPageState extends State<MainPage> {
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  )
-                ),
+                    topRight: Radius.circular(20),)),
+                    child: BottomNavigationBar(
+                      elevation: 0,
+                      backgroundColor: Colors.transparent,
+                      selectedItemColor: mainColor,
+                      unselectedItemColor: Color(0xFFE5E5E5),
+                      currentIndex: bottomNavbarIndex,
+                      onTap: (index) {
+                        setState(() {
+                          bottomNavbarIndex = index;
+                          pageController.jumpToPage(index);
+                        });
+                      },
+                      items: [
+                        BottomNavigationBarItem(
+                          label: "New Movies",
+                          
+                          icon: Container(
+                            margin: EdgeInsets.only(bottom:6),
+                            height: 20,
+                            child: Image.asset((bottomNavbarIndex == 0) 
+                            ? "assets/ic_movie.png" 
+                            : "assets/ic_movie_grey.png"),
+                          )),
+                        BottomNavigationBarItem(
+                          label: "My Tickets",
+                          
+                          icon: Container(
+                            margin: EdgeInsets.only(bottom:6),
+                            height: 20,
+                            child: Image.asset((bottomNavbarIndex == 1) 
+                            ? "assets/ic_tickets.png" 
+                            : "assets/ic_tickets_grey.png"),
+                          )),
+                      ]),
               ),
             ),
           );
