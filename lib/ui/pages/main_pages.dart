@@ -9,7 +9,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Main Page"),),
+      
       body: Center(
         child: ElevatedButton(
           child: Text("Sign Out"),
