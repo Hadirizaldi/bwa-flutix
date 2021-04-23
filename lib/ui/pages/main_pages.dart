@@ -6,6 +6,9 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int bottomNavbarIndex;
+  PageController pageController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
