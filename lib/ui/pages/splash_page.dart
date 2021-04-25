@@ -36,7 +36,11 @@ class SplashPage extends StatelessWidget {
               child: ElevatedButton(
                 child : Text("Get Started",style: whiteTextFont.copyWith(fontSize: 16),),
           
-                onPressed: () {},),
+                onPressed: () {
+                  context
+                    .bloc<PageBloc>()
+                    .add(GoToRegistrationPage(RegistrationData()));
+                },),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
