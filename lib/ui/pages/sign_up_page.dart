@@ -190,7 +190,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             widget.registrationData.email = emailController.text;
                             widget.registrationData.password = passwordController.text;
 
-                            // TODO: go to preference page
+                            context.bloc<PageBloc>().add(GoToPreferencePage(widget.registrationData));
                           }
                   }),
 
