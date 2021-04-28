@@ -34,7 +34,12 @@ class SplashPage extends StatelessWidget {
               width: 250, height: 46,
               margin: EdgeInsets.only(top: 70,bottom: 19),
               child: ElevatedButton(
-                child : Text("Get Started",style: whiteTextFont.copyWith(fontSize: 16),),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(mainColor),
+                ),
+                child : Text("Get Started",
+                  style: whiteTextFont.copyWith(fontSize: 16),
+                ),
           
                 onPressed: () {
                   context
