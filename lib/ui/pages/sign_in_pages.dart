@@ -33,7 +33,7 @@ class _SignInPageState extends State<SignInPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 30,),
-                  SizedBox(height: 70, child: Image.asset("asset/logo.png"),),
+                  SizedBox(height: 70, child: Image.asset("assets/logo.png"),),
                   Container(
                     margin: EdgeInsets.only(top: 70, bottom: 40),
                     child: Text("Welcome Back, \nExplorer!", style: blackTextFont.copyWith(fontSize: 20),),
@@ -108,7 +108,7 @@ class _SignInPageState extends State<SignInPage> {
                           if(result.user == null) {
                             setState(() {
                               isSigningIn = false;                          
-                             });
+                            });
                             
                             Flushbar(
                               duration: Duration(seconds: 4),

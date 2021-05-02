@@ -96,8 +96,8 @@ class _MainPageState extends State<MainPage> {
                             margin: EdgeInsets.only(bottom:6),
                             height: 20,
                             child: Image.asset((bottomNavbarIndex == 0) 
-                            ? "assets/ic_movie.png" 
-                            : "assets/ic_movie_grey.png"),
+                            ? "assets/ic_movies.png" 
+                            : "assets/ic_movies_grey.png"),
                           )),
                         BottomNavigationBarItem(
                           label: "My Tickets",
@@ -121,8 +121,8 @@ class BottomNavBarClipper extends CustomClipper<Path> {
     Path path = Path();
 
     path.lineTo(size.width/2-28, 0);
-    path.quadraticBezierTo(size.width/2-28, 33, size.width/2-28, 33);
-    path.quadraticBezierTo(size.width/2+28, 33, size.width/2+28, 0);
+    path.quadraticBezierTo(size.width/2 - 28, 33, size.width/2, 33);
+    path.quadraticBezierTo(size.width/2 + 28, 33, size.width/2 + 28, 0);
     path.lineTo(size.width, 0);
     path.lineTo(size.width,size.height);
     path.lineTo(0, size.height);
