@@ -1,6 +1,6 @@
 # bwa_flutix
 
-A new Flutter project.
+A cinema ticket booking application using flutter 
 
 ## Getting Started
 
